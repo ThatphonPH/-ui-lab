@@ -1,1 +1,1 @@
-// Cypress loads this file before each spec.
+import './commands'

@@ -56,5 +56,14 @@ describe('QP-01 A custom pizza reaches the admin list', () => {
     // Step 5: verify the guest rating prompt
     cy.get('button[name="rate-5"]').click()
     cy.get('#rate-result').should('have.text', 'Please log in first.')
+
+    // Step 6: sign in with the public demo credentials in the same session
+    cy.adminLogin('admin', 'admin')
+    cy.contains('Latest pizza recommendations').should('be.visible')
+
+    // Step 7: check the named row against the recommended tool
+    cy.get('@tool').then((tool) => {
+      cy.contains('li', pizzaName).should('contain', '(tool=' + tool + ',')
+    })
   })
 })
