@@ -46,3 +46,4 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 ## Part 4 · Cypress
 
 - Node.js v24.22.2, npm 11.19.1, Cypress package and binary 16.2.1.
+- Step 4.3 intentional wrong title: `Timed out retrying after 10000ms`. The assertion diff showed actual `Web form` and expected `Web Form` (1 failing).
