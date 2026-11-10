@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5.1 (Python 3.13.2 on darwin)" generated="2026-11-10T11:36:57.278956" rpa="false" schemaversion="5">
+<suite id="s1" name="Pizza Scenario" source="/Users/thatphonphetthong/Documents/Codex/2026-11-10/https-github-com-thatphonph-ui-lab/outputs/ui-lab/robot/pizza_scenario.robot">
+<test id="s1-t1" name="QP-01 A Custom Pizza Reaches The Admin List" line="7">
+<kw name="Open QuickPizza" owner="quickpizza">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:36:57.441720" level="INFO">Opening browser 'headlesschrome' to base url 'https://quickpizza.grafana.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<arg>service=executable_path=r'%{CHROMEDRIVER}'</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-11-10T11:36:57.441286" elapsed="2.765146"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1280</arg>
+<arg>1600</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2026-11-10T11:37:00.207032" elapsed="0.020301"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css:h1</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:00.227599" elapsed="1.467791"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.696078" level="INFO">Verifying element 'css:h1' contains exact text 'Looking to break out of your pizza routine?'.</msg>
+<arg>css:h1</arg>
+<arg>${HEADING}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.695724" elapsed="0.009777"/>
+</kw>
+<status status="PASS" start="2026-11-10T11:36:57.440357" elapsed="4.265270"/>
+</kw>
+<kw name="Turn On Advanced" owner="quickpizza">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.706328" level="INFO">Clicking element 'xpath://label[.//span[normalize-space()='Advanced']]'.</msg>
+<arg>xpath://label[.//span[normalize-space()='Advanced']]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.706131" elapsed="0.034595"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath://select/option[normalize-space()='Knife']</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.740897" elapsed="0.215719"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.964713" level="INFO">Element 'xpath://label[normalize-space()='Max Calories per Slice']/preceding-sibling::input' is displayed.</msg>
+<arg>${MAX CALORIES}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.956748" elapsed="0.008069"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.972647" level="INFO">Element 'css:select' is displayed.</msg>
+<arg>${EXCLUDED TOOLS}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.965038" elapsed="0.007671"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.978821" level="INFO">Element 'id:default-checkbox' is displayed.</msg>
+<arg>${VEGETARIAN}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.972819" elapsed="0.006081"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.986571" level="INFO">Element 'css:input#pizza-name' is displayed.</msg>
+<arg>${PIZZA NAME}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.979037" elapsed="0.007823"/>
+</kw>
+<status status="PASS" start="2026-11-10T11:37:01.705902" elapsed="0.281183"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2026-11-10T11:37:01.987578" level="INFO">${stamp} = 20261110-113701</msg>
+<var>${stamp}</var>
+<arg>result_format=%Y%m%d-%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.987274" elapsed="0.000319"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-10T11:37:01.988056" level="INFO">${name} = Lab Pizza 20261110-113701</msg>
+<var>${name}</var>
+<arg>Lab Pizza ${stamp}</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.987677" elapsed="0.000400"/>
+</kw>
+<kw name="Fill In The Pizza Request" owner="quickpizza">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:01.988645" level="INFO">Typing text '600' into text field 'xpath://label[normalize-space()='Max Calories per Slice']/preceding-sibling::input'.</msg>
+<arg>${MAX CALORIES}</arg>
+<arg>${calories}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:01.988416" elapsed="0.171952"/>
+</kw>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.160899" level="INFO">Selecting options from selection list 'css:select' by label Knife.</msg>
+<arg>${EXCLUDED TOOLS}</arg>
+<arg>${tool}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.160692" elapsed="0.069828"/>
+</kw>
+<kw name="Select Checkbox" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.231288" level="INFO">Selecting checkbox 'id:default-checkbox'.</msg>
+<arg>${VEGETARIAN}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.230884" elapsed="0.041530"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.272716" level="INFO">Typing text 'Lab Pizza 20261110-113701' into text field 'css:input#pizza-name'.</msg>
+<arg>${PIZZA NAME}</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.272550" elapsed="0.056596"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.342714" level="INFO">Content of text field 'xpath://label[normalize-space()='Max Calories per Slice']/preceding-sibling::input' is '600'.</msg>
+<arg>${MAX CALORIES}</arg>
+<arg>${calories}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.329287" elapsed="0.013499"/>
+</kw>
+<kw name="List Selection Should Be" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.343077" level="INFO">Verifying list 'css:select' has option [ Knife ] selected.</msg>
+<msg time="2026-11-10T11:37:02.350606" level="INFO">Current page contains list 'css:select'.</msg>
+<arg>${EXCLUDED TOOLS}</arg>
+<arg>${tool}</arg>
+<doc>Verifies selection list ``locator`` has ``expected`` options selected.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.342909" elapsed="0.043507"/>
+</kw>
+<kw name="Checkbox Should Be Selected" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.386676" level="INFO">Verifying checkbox 'id:default-checkbox' is selected.</msg>
+<arg>${VEGETARIAN}</arg>
+<doc>Verifies checkbox ``locator`` is selected/checked.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.386529" elapsed="0.007783"/>
+</kw>
+<kw name="Textfield Value Should Be" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.402319" level="INFO">Content of text field 'css:input#pizza-name' is 'Lab Pizza 20261110-113701'.</msg>
+<arg>${PIZZA NAME}</arg>
+<arg>${name}</arg>
+<doc>Verifies text field ``locator`` has exactly text ``expected``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.394516" elapsed="0.007878"/>
+</kw>
+<arg>600</arg>
+<arg>Knife</arg>
+<arg>${name}</arg>
+<status status="PASS" start="2026-11-10T11:37:01.988230" elapsed="0.414237"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.490391" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="qp01-step3-fields.png"&gt;&lt;img src="qp01-step3-fields.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>qp01-step3-fields.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.402778" elapsed="0.088012"/>
+</kw>
+<kw name="Ask For A Pizza" owner="quickpizza">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.491847" level="INFO">Clicking button 'name:pizza-please'.</msg>
+<arg>name:pizza-please</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.491648" elapsed="0.036913"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${RECOMMENDATIONS}</arg>
+<arg>Name:</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.528740" elapsed="0.428641"/>
+</kw>
+<status status="PASS" start="2026-11-10T11:37:02.491078" elapsed="0.466374"/>
+</kw>
+<kw name="Recommendation Should Keep The Restrictions" owner="quickpizza">
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.965525" level="INFO">Element 'id:recommendations' contains text 'Name: Lab Pizza 20261110-113701'.</msg>
+<arg>${RECOMMENDATIONS}</arg>
+<arg>Name: ${name}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.957766" elapsed="0.007880"/>
+</kw>
+<kw name="Get Recommended Tool" owner="quickpizza">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.971936" level="INFO">${line} = Tool: Scissors</msg>
+<var>${line}</var>
+<arg>xpath://*[@id='recommendations']//p[starts-with(.,'Tool:')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.966208" elapsed="0.005751"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2026-11-10T11:37:02.972196" level="INFO">${tool} = Scissors</msg>
+<var>${tool}</var>
+<arg>${line}</arg>
+<arg>Tool:${SPACE}</arg>
+<doc>Removes all `removables` from the given `string`.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.972056" elapsed="0.000155"/>
+</kw>
+<return>
+<value>${tool}</value>
+<status status="PASS" start="2026-11-10T11:37:02.972259" elapsed="0.000094"/>
+</return>
+<msg time="2026-11-10T11:37:02.972419" level="INFO">${tool} = Scissors</msg>
+<var>${tool}</var>
+<status status="PASS" start="2026-11-10T11:37:02.965955" elapsed="0.006475"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2026-11-10T11:37:02.972782" level="INFO">Length is 8.</msg>
+<arg>${tool}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.972491" elapsed="0.000310"/>
+</kw>
+<kw name="Should Not Be Equal" owner="BuiltIn">
+<arg>${tool}</arg>
+<arg>${excluded tool}</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.972851" elapsed="0.000132"/>
+</kw>
+<kw name="Get Calories Per Slice" owner="quickpizza">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:02.979762" level="INFO">${line} = Calories per slice: 525</msg>
+<var>${line}</var>
+<arg>xpath://*[@id='recommendations']//p[starts-with(.,'Calories per slice:')]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.973154" elapsed="0.006648"/>
+</kw>
+<kw name="Remove String" owner="String">
+<msg time="2026-11-10T11:37:02.980113" level="INFO">${calories} = 525</msg>
+<var>${calories}</var>
+<arg>${line}</arg>
+<arg>Calories per slice:${SPACE}</arg>
+<doc>Removes all `removables` from the given `string`.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.979966" elapsed="0.000158"/>
+</kw>
+<return>
+<value>${calories}</value>
+<status status="PASS" start="2026-11-10T11:37:02.980158" elapsed="0.000045"/>
+</return>
+<msg time="2026-11-10T11:37:02.980288" level="INFO">${calories} = 525</msg>
+<var>${calories}</var>
+<status status="PASS" start="2026-11-10T11:37:02.973055" elapsed="0.007243"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>float($calories) &lt;= float($max_calories)</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.980364" elapsed="0.000525"/>
+</kw>
+<return>
+<value>${tool}</value>
+<status status="PASS" start="2026-11-10T11:37:02.980925" elapsed="0.000042"/>
+</return>
+<msg time="2026-11-10T11:37:02.981059" level="INFO">${tool} = Scissors</msg>
+<var>${tool}</var>
+<arg>${name}</arg>
+<arg>Knife</arg>
+<arg>600</arg>
+<status status="PASS" start="2026-11-10T11:37:02.957599" elapsed="0.023478"/>
+</kw>
+<kw name="Capture Element Screenshot" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:03.053465" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="qp01-step4-pizza.png"&gt;&lt;img src="qp01-step4-pizza.png" width="400px"&gt;&lt;/a&gt;</msg>
+<arg>${RECOMMENDATIONS}</arg>
+<arg>qp01-step4-pizza.png</arg>
+<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
+<status status="PASS" start="2026-11-10T11:37:02.981181" elapsed="0.072363"/>
+</kw>
+<kw name="Rate The Pizza Without Logging In" owner="quickpizza">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:03.054030" level="INFO">Clicking button 'name:rate-5'.</msg>
+<arg>name:rate-5</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:03.053896" elapsed="0.029433"/>
+</kw>
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>id:rate-result</arg>
+<arg>Please log in first.</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2026-11-10T11:37:03.083559" elapsed="1.029856"/>
+</kw>
+<status status="PASS" start="2026-11-10T11:37:03.053735" elapsed="1.064036"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:04.300828" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="qp01-step5-login-needed.png"&gt;&lt;img src="qp01-step5-login-needed.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>qp01-step5-login-needed.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-11-10T11:37:04.118406" elapsed="0.182529"/>
+</kw>
+<kw name="Log In As Admin" owner="quickpizza">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:04.305195" level="INFO">Opening url 'https://quickpizza.grafana.com/admin'</msg>
+<arg>${URL}/admin</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-11-10T11:37:04.305025" elapsed="1.620306"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:svelte-announcer</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-10T11:37:05.925738" elapsed="0.027708"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:05.954250" level="INFO">Typing text 'admin' into text field 'id:username'.</msg>
+<arg>id:username</arg>
+<arg>admin</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:05.953812" elapsed="0.095311"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:06.049808" level="INFO">Typing password into text field 'id:password'.</msg>
+<msg time="2026-11-10T11:37:06.089254" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id:password</arg>
+<arg>admin</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.049550" elapsed="0.072585"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:06.123492" level="INFO">Clicking button 'css:button[type=submit]'.</msg>
+<arg>css:button[type=submit]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.122600" elapsed="0.073740"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Latest pizza recommendations</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.196556" elapsed="0.426232"/>
+</kw>
+<status status="PASS" start="2026-11-10T11:37:04.304046" elapsed="2.318930"/>
+</kw>
+<kw name="Admin List Should Show The Pizza" owner="quickpizza">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-11-10T11:37:06.624551" level="INFO">${row} = xpath://li[contains(.,'Lab Pizza 20261110-113701')]</msg>
+<var>${row}</var>
+<arg>xpath://li[contains(.,'${name}')]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.623906" elapsed="0.000675"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${row}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.624695" elapsed="0.220407"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:06.855923" level="INFO">Element 'xpath://li[contains(.,'Lab Pizza 20261110-113701')]' contains text '(tool=Scissors,'.</msg>
+<arg>${row}</arg>
+<arg>(tool=${tool},</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.845467" elapsed="0.010563"/>
+</kw>
+<arg>${name}</arg>
+<arg>${tool}</arg>
+<status status="PASS" start="2026-11-10T11:37:06.623241" elapsed="0.232943"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2026-11-10T11:37:06.922340" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="qp01-step7-admin-list.png"&gt;&lt;img src="qp01-step7-admin-list.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>qp01-step7-admin-list.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.856342" elapsed="0.066147"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-11-10T11:37:06.922894" elapsed="0.103705"/>
+</kw>
+<doc>Check pizza restrictions, the anonymous rating prompt, and the admin list.</doc>
+<status status="PASS" start="2026-11-10T11:36:57.439746" elapsed="9.587007"/>
+</test>
+<status status="PASS" start="2026-11-10T11:36:57.279820" elapsed="9.747867"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Pizza Scenario" id="s1" pass="1" fail="0" skip="0">Pizza Scenario</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

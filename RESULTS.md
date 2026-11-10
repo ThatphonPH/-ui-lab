@@ -37,3 +37,8 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 
 - `robot --version` reported Robot Framework 7.5.1 (Python 3.13.2 on darwin). SeleniumLibrary version was 6.9.0.
 - Step 3.2 intentional wrong title: `Title should have been 'Web Form' but was 'Web form'.` The run reported 1 failed test. With the correct title restored, both web form tests passed.
+
+| Step 3.8 | Result | Suite elapsed | Pizza name | Recommendation |
+| --- | --- | ---: | --- | --- |
+| [Run 1](robot/results/run1/) | 1 passed, 0 failed | 11.210 s | `Lab Pizza 20261110-113651` | Pizza cutter, 450 cal/slice |
+| [Run 2](robot/results/run2/) | 1 passed, 0 failed | 9.748 s | `Lab Pizza 20261110-113701` | Scissors, 525 cal/slice |
