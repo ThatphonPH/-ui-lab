@@ -6,3 +6,4 @@ Tool parts chosen: **Part 3 (Robot Framework)** and **Part 4 (Cypress)**.
 
 - Step 0.1, Chrome: Google Chrome 157.0.8103.50 (Official Build), arm64.
 - Step 0.2: Downloaded the Chrome for Testing ChromeDriver archive for mac-arm64, version 157.0.8103.50, and extracted it outside the repository.
+- Step 0.3: `chromedriver --version` confirmed 157.0.8103.50. The local environment exports `CHROMEDRIVER` with the path to the executable.
