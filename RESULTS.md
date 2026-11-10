@@ -42,3 +42,7 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 | --- | --- | ---: | --- | --- |
 | [Run 1](robot/results/run1/) | 1 passed, 0 failed | 11.210 s | `Lab Pizza 20261110-113651` | Pizza cutter, 450 cal/slice |
 | [Run 2](robot/results/run2/) | 1 passed, 0 failed | 9.748 s | `Lab Pizza 20261110-113701` | Scissors, 525 cal/slice |
+
+## Part 4 · Cypress
+
+- Node.js v24.22.2, npm 11.19.1, Cypress package and binary 16.2.1.

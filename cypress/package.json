@@ -1,0 +1,14 @@
+{
+  "name": "ui-lab-cypress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "cypress run --browser chrome"
+  },
+  "engines": {
+    "node": "^22.0.0 || ^24.0.0 || ^26.0.0"
+  },
+  "devDependencies": {
+    "cypress": "16.2.1"
+  }
+}
