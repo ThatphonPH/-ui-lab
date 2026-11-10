@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation    Locators and actions for the QuickPizza pages visited by QP-01.
 Library          SeleniumLibrary    timeout=10s
+Library          String
 
 *** Variables ***
 ${URL}                https://quickpizza.grafana.com
@@ -10,6 +11,7 @@ ${MAX CALORIES}       xpath://label[normalize-space()='Max Calories per Slice']/
 ${EXCLUDED TOOLS}     css:select
 ${VEGETARIAN}         id:default-checkbox
 ${PIZZA NAME}         css:input#pizza-name
+${RECOMMENDATIONS}    id:recommendations
 
 *** Keywords ***
 Open QuickPizza
@@ -36,3 +38,27 @@ Fill In The Pizza Request
     List Selection Should Be    ${EXCLUDED TOOLS}    ${tool}
     Checkbox Should Be Selected    ${VEGETARIAN}
     Textfield Value Should Be    ${PIZZA NAME}    ${name}
+
+Ask For A Pizza
+    Click Button    name:pizza-please
+    Wait Until Element Contains    ${RECOMMENDATIONS}    Name:
+
+Get Recommended Tool
+    ${line}=    Get Text    xpath://*[@id='recommendations']//p[starts-with(.,'Tool:')]
+    ${tool}=    Remove String    ${line}    Tool:${SPACE}
+    RETURN    ${tool}
+
+Get Calories Per Slice
+    ${line}=    Get Text    xpath://*[@id='recommendations']//p[starts-with(.,'Calories per slice:')]
+    ${calories}=    Remove String    ${line}    Calories per slice:${SPACE}
+    RETURN    ${calories}
+
+Recommendation Should Keep The Restrictions
+    [Arguments]    ${name}    ${excluded tool}    ${max calories}
+    Element Should Contain    ${RECOMMENDATIONS}    Name: ${name}
+    ${tool}=    Get Recommended Tool
+    Should Not Be Empty    ${tool}
+    Should Not Be Equal    ${tool}    ${excluded tool}
+    ${calories}=    Get Calories Per Slice
+    Should Be True    float($calories) <= float($max_calories)
+    RETURN    ${tool}
