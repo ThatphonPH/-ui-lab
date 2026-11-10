@@ -7,3 +7,7 @@ cypress/cypress/downloads/
 .idea/
 .vscode/
 .env
+robot/output.xml
+robot/log.html
+robot/report.html
+robot/*.png

@@ -36,3 +36,4 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 ## Part 3 · Robot Framework
 
 - `robot --version` reported Robot Framework 7.5.1 (Python 3.13.2 on darwin). SeleniumLibrary version was 6.9.0.
+- Step 3.2 intentional wrong title: `Title should have been 'Web Form' but was 'Web form'.` The run reported 1 failed test. With the correct title restored, both web form tests passed.
