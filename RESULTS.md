@@ -32,3 +32,7 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 | 5 | Click Love it! while signed out. | The page asks the guest to log in. | The message was “Please log in first.” | Pass |
 | 6 | Open the admin page in the same Chrome session and sign in. | The latest recommendations heading appears. | The heading was “Latest pizza recommendations”. | Pass |
 | 7 | Find the pizza by name in the admin list. | Its row shows the same tool as the recommendation. | The row read `Lab Pizza 20261110-113412 (tool=Scissors, ingredients_number=8)`. | Pass |
+
+## Part 3 · Robot Framework
+
+- `robot --version` reported Robot Framework 7.5.1 (Python 3.13.2 on darwin). SeleniumLibrary version was 6.9.0.
