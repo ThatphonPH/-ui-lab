@@ -18,3 +18,17 @@ Tool parts chosen: **Part 3 (Robot Framework)** and **Part 4 (Cypress)**.
 | Custom Pizza Name | `input#pizza-name` | 1 |
 | Max Calories per Slice | `//label[normalize-space()='Max Calories per Slice']/preceding-sibling::input` | 1 |
 | Shared ID on the number fields | `#floating_filled` | 3 |
+
+### QP-01 · A custom pizza reaches the admin list
+
+Preconditions: QuickPizza is reachable and the Chrome Guest session is signed out. Test data: `Lab Pizza 20261110-113412`, maximum 600 calories per slice, exclude Knife, vegetarian checked, and QuickPizza's public demo admin credentials.
+
+| Step | Action | Expected result | Actual result | Status |
+| --- | --- | --- | --- | --- |
+| 1 | Open QuickPizza. | The home heading appears. | The heading was “Looking to break out of your pizza routine?” | Pass |
+| 2 | Turn on Advanced. | The calorie limit, excluded tools, vegetarian checkbox, and custom name appear. | All four controls appeared. The calorie limit started at 1000. | Pass |
+| 3 | Set the calorie limit to 600, select Knife, check vegetarian, and enter the name. | Each control shows its specified value. | The number was 600, Knife was selected, vegetarian was checked, and the full name was entered. | Pass |
+| 4 | Click Pizza, Please! | The recommendation shows the custom name, a tool other than Knife, and at most 600 calories per slice. | The recommendation showed `Lab Pizza 20261110-113412`, Scissors, and 600 calories per slice. | Pass |
+| 5 | Click Love it! while signed out. | The page asks the guest to log in. | The message was “Please log in first.” | Pass |
+| 6 | Open the admin page in the same Chrome session and sign in. | The latest recommendations heading appears. | The heading was “Latest pizza recommendations”. | Pass |
+| 7 | Find the pizza by name in the admin list. | Its row shows the same tool as the recommendation. | The row read `Lab Pizza 20261110-113412 (tool=Scissors, ingredients_number=8)`. | Pass |
