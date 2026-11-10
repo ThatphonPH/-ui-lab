@@ -47,3 +47,5 @@ Preconditions: QuickPizza is reachable and the Chrome Guest session is signed ou
 
 - Node.js v24.22.2, npm 11.19.1, Cypress package and binary 16.2.1.
 - Step 4.3 intentional wrong title: `Timed out retrying after 10000ms`. The assertion diff showed actual `Web form` and expected `Web Form` (1 failing).
+
+- Step 4.6: `POST /api/pizza` returned HTTP 200 after a request with `maxCaloriesPerSlice: 600`. The UI matched the response in both runs (Pizza cutter and 525 cal/slice in run 1, Scissors and 600 cal/slice in run 2).
