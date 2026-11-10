@@ -19,3 +19,11 @@ QP-01 A Custom Pizza Reaches The Admin List
     Ask For A Pizza
     ${tool}=    Recommendation Should Keep The Restrictions    ${name}    Knife    600
     Capture Element Screenshot    ${RECOMMENDATIONS}    qp01-step4-pizza.png
+    # Step 5
+    Rate The Pizza Without Logging In
+    Capture Page Screenshot    qp01-step5-login-needed.png
+    # Step 6
+    Log In As Admin
+    # Step 7
+    Admin List Should Show The Pizza    ${name}    ${tool}
+    Capture Page Screenshot    qp01-step7-admin-list.png

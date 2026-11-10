@@ -62,3 +62,22 @@ Recommendation Should Keep The Restrictions
     ${calories}=    Get Calories Per Slice
     Should Be True    float($calories) <= float($max_calories)
     RETURN    ${tool}
+
+Rate The Pizza Without Logging In
+    Click Button    name:rate-5
+    Wait Until Element Contains    id:rate-result    Please log in first.
+
+Log In As Admin
+    Go To    ${URL}/admin
+    Wait Until Page Contains Element    id:svelte-announcer
+    # QuickPizza supplies the public demo values in the form and documents them as hints.
+    Input Text    id:username    admin
+    Input Password    id:password    admin
+    Click Button    css:button[type=submit]
+    Wait Until Page Contains    Latest pizza recommendations
+
+Admin List Should Show The Pizza
+    [Arguments]    ${name}    ${tool}
+    ${row}=    Set Variable    xpath://li[contains(.,'${name}')]
+    Wait Until Element Is Visible    ${row}
+    Element Should Contain    ${row}    (tool=${tool},
